@@ -121,8 +121,10 @@ inigo.greeting(rugen);
 //# 7
 console.log("==============================7=============================");
 
+//a
 const basketballGame = {
   score: 0,
+  fouls: 0,
   freeThrow: function () {
     this.score++;
     return this;
@@ -135,8 +137,19 @@ const basketballGame = {
     this.score += 3;
     return this;
   },
+  //c
+  makeAFouls:function(){
+    this.fouls++;
+    return this;
+  },
   halfTime: function () {
-    return console.log("Halftime score is " + this.score);
+    console.log ("Halftime score is " + this.score + ' And yours Fouls are: ' + this.fouls );
+    return this;
+  },
+  //b
+  fullTime: function () {
+     console.log("FullTime score is " + this.score + ' And yours Fouls are: ' + this.fouls);
+     return this;
   },
 };
 //modify each of the above object methods to enable function chaining as below:
@@ -145,11 +158,16 @@ basketballGame
   .basket()
   .freeThrow()
   .freeThrow()
+  .makeAFouls()
   .basket()
   .threePointer()
-  .halfTime();
-
-
+  .halfTime()
+  .basket()
+  .makeAFouls()
+  .freeThrow()
+  .makeAFouls()
+  .freeThrow()
+  .fullTime();
 
 //# 8
 console.log("==============================8=============================");
